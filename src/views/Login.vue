@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-5">
-                        <button class="btn btn-primary mx-4" type="button" @click="$router.push('employee')">Button</button>
+                        <button class="btn btn-primary mx-4" type="button" @click="$router.push('admin')">AdminFacing</button>
                         <button class="btn btn-primary mx-4" type="button" @click="$router.push('employee')">EmployeeFacing</button>
                     </div>
 
