@@ -1,0 +1,116 @@
+<template>
+<div>
+  <section>
+        <div class="custom-shape-divider-top-1651513860">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    
+    <!--Login Form-->
+    <div class="container p-5 h-100 d-flex justify-content-center align-items-center">
+        <div class="card bg-white shadow">
+            <div class="card-body p-md-5 mx-md-4">
+
+                <div class="text-center mt-1 mb-4 p-1">
+                    <img src="../assets/img/logo.png"
+                    style="width: 200px;" alt="logo">
+                </div>
+
+                <form>
+                    <p>Login to your account</p>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="user-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg></span>
+                        </div>
+                        <input type="text" id="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="user-icon">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="password-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+                        </svg></span>
+                        </div>
+                        <input type="password" id="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-icon">
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-5">
+                        <button class="btn btn-primary mx-4" type="button" @click="$router.push('employee')">Button</button>
+                        <button class="btn btn-primary mx-4" type="button" @click="$router.push('employee')">EmployeeFacing</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+export default {
+  name: "Login"
+}
+</script>
+
+<style scoped>
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: #fcfcfc;
+}
+
+.btn,
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:visited{
+    background-color: #BD200F !important;
+    border: 0 !important;
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723);
+}
+
+.btn-primary:hover {
+    background-color: #a01101 !important;
+    border: 0 !important;
+    
+}
+
+section {
+    position: relative;
+}
+
+.custom-shape-divider-top-1651513860 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1651513860 svg {
+    position: relative;
+    display: block;
+    width: calc(119% + 1.3px);
+    height: 359px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1651513860 .shape-fill {
+    fill: #BD200F;
+}
+</style>
