@@ -3,11 +3,11 @@
 		<!--Header-->
 		<div class="d-flex af-header px-5">
 			<div class="h-100 pt-4">
-				<img src="../assets/img/logo.png" style="width: 90px;" alt="logo" draggable="false" (dragstart)="false;" class="unselectable">
+				<img src="../assets/img/logo.png" style="width: 90px;" alt="logo" draggable="false" class="unselectable">
 			</div>
 			<div class="d-flex flex-grow-1 w-100">
 				<div class="d-flex flex-row-reverse w-100">
-					<button class="btn-logout" id="admin-facing-logout">Logout</button>
+					<button class="btn-logout" id="admin-facing-logout" @click="$router.push( {name: 'Login'} )">Logout</button>
 				</div>
 			</div>
 		</div>
@@ -18,7 +18,7 @@
 				<div class="col py-4">
 					<button class="btn" id="admin-facing-generate-payroll">
 						<div class="row d-flex justify-content-center">
-							<img src="../assets/img/payroll.png" style="width: 200px;" draggable="false" (dragstart)="false;" class="unselectable">
+							<img src="../assets/img/payroll.png" style="width: 200px;" draggable="false" class="unselectable">
 						</div>
 						<div class="row">
 							<span class="text-choice pt-4">Generate Payroll Report</span>
@@ -29,7 +29,7 @@
 				<div class="col py-4">
 					<button class="btn" id="admin-facing-add-employee">
 						<div class="row d-flex justify-content-center">
-							<img src="../assets/img/employee.png" style="width: 200px;" draggable="false" (dragstart)="false;" class="unselectable">
+							<img src="../assets/img/employee.png" style="width: 200px;" draggable="false" class="unselectable">
 						</div>
 						<div class="row">
 							<span class="text-choice pt-4">Register New Employee</span>
@@ -40,7 +40,7 @@
 				<div class="col py-4">
 					<button class="btn" id="admin-facing-add-role">
 						<div class="row d-flex justify-content-center">
-							<img src="../assets/img/role.png" style="width: 200px;" draggable="false" (dragstart)="false;" class="unselectable">
+							<img src="../assets/img/role.png" style="width: 200px;" draggable="false" class="unselectable">
 						</div>
 						<div class="row">
 							<span class="text-choice pt-4">Register New Role</span>
