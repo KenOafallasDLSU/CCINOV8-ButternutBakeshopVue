@@ -1,9 +1,13 @@
 <template>
 <div>
+  <!-- Modals -->
+  <PasswordModal ref="passwordModal"/>
+
   <!-- Header -->
 <div class="section header d-flex justify-content-between">
   <img src="../assets/img/logo.png" alt="logo" class="logo">
   <h2 class="d-inline">
+    <button @click="showModal">modal</button>
     <router-link id="logout-button" class="logout-button" to="/">Logout</router-link>
   </h2>
 </div>
@@ -91,8 +95,23 @@
 </template>
 
 <script>
+import PasswordModal from '../components/PasswordModal.vue'
+
 export default {
   name: 'EmployeeFacing',
+  components: {
+    PasswordModal
+  },
+  methods: {
+    showModal() {
+      if(typeof this.$refs.passwordModal !== 'undefined')
+        this.$refs.passwordModal.showModal()
+    },
+    hideModal() {
+      if(typeof this.$refs.passwordModal !== 'undefined')
+        this.$refs.passwordModal.hideModal()
+    }
+  },
   data() {
     return{
         employees: [
