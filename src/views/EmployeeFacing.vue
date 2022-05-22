@@ -10,8 +10,8 @@
 
 <!-- Production Amount Input -->
 <div class="section">
-  <div class="form-group row">
-    <label for="inputAmount" class="col-sm-4 col-form-label label">Production Amount</label>
+  <div class="form-group row text-left">
+    <label for="inputAmount" class="col-sm-4 col-form-label label">Dami ng Sacks</label>
     <div class="col-sm-4">
       <input type="text" class="form-control amount-textbox" id="inputAmount" placeholder="0">
     </div>
@@ -19,57 +19,57 @@
 </div>
 
 <!-- Team Leader Section -->
-<h2 class="section">
+<h2 class="section text-left">
   Team Leader
 </h2>
 
 <div class="input-line section">
   <div class="d-inline dropdown left">
-    <button class="btn btn-secondary dropdown-toggle dropdown-styler" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Pumili ng Empleyado
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Test</a>
-        <a class="dropdown-item" href="#"></a>
-    </div>
+    <select v-model="testVal01" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+    </select>
   </div>
 
   <div class="d-inline dropdown right">
-    <button class="btn btn-secondary dropdown-toggle dropdown-styler" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Pumili ng Trabaho
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Test</a>
-        <a class="dropdown-item" href="#"></a>
-    </div>
+    <select v-model="testVal02" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+    </select>
   </div>
 </div>
 
 <!-- Horizontal Line Separator -->
-<hr class="hr-divider section"/>
+<!-- <hr class="hr-divider section clearfix"/> -->
 
 <!-- Team Members Section -->
-<h2 class="section">
+<h2 class="section text-left">
   Team Members
 </h2>
 
 <div class="input-line section">
   <div class="d-inline dropdown left">
-    <button class="btn btn-secondary dropdown-toggle dropdown-styler" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Pumili ng Empleyado
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <option value=""></option>
-    </div>
+    <select v-model="testVal11" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+    </select>
   </div>
 
   <div class="d-inline dropdown right">
-    <button class="btn btn-secondary dropdown-toggle dropdown-styler" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Pumili ng Trabaho
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <option value=""></option>
-    </div>
+    <select v-model="testVal12" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="input-line section">
+  <div class="d-inline dropdown left">
+    <select v-model="testVal21" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+    </select>
+  </div>
+
+  <div class="d-inline dropdown right">
+    <select v-model="testVal22" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+    </select>
   </div>
 </div>
 
@@ -92,7 +92,30 @@
 
 <script>
 export default {
-  name: 'EmployeeFacing'
+  name: 'EmployeeFacing',
+  data() {
+    return{
+        employees: [
+          {text:'Pumili ng Empleyado', value:null},
+          {text:'Deborah Buhion', value:1},
+          {text:'Michaela Dizon', value:2},
+          {text:'Thea Go', value:3},
+          {text:'Kenneth Oafallas', value:4}
+        ],
+        roles: [
+          {text:'Pumili ng Trabaho', value:null},
+          {text:'Shaping', value:1},
+          {text:'Baking', value:2},
+          {text:'Delivery', value:3}
+        ],
+        testVal01: null,
+        testVal02: null,
+        testVal11: null,
+        testVal12: null,
+        testVal21: null,
+        testVal22: null
+    }
+  }
 }
 </script>
   
@@ -120,7 +143,7 @@ html {
 }
 
 .logout-button{
-  font-size: 20px;
+  font-size: 12px;
   color: #000;
   text-decoration: none;
 }
