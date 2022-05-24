@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import EmployeeFacing from '../views/EmployeeFacing.vue'
 import AdminFacing from '../views/AdminFacing.vue'
+import Report from '../views/Report.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/admin',
     name: 'AdminFacing',
     component: AdminFacing
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: Report
   },
   {
     path: '/about',
