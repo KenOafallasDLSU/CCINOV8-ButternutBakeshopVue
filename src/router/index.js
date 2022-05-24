@@ -6,6 +6,7 @@ import EmployeeFacing from '../views/EmployeeFacing.vue'
 import AdminFacing from '../views/AdminFacing.vue'
 import CreateEmployee from '../views/CreateEmployee.vue'
 import CreateRole from '../views/CreateRole.vue'
+import Report from '../views/Report.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/create-role',
     name: 'CreateRole',
     component: CreateRole
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: Report
   },
   {
     path: '/about',

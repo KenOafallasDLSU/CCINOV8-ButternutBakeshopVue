@@ -16,7 +16,7 @@
 		<div class="container mt-2 py-2 af-clickable d-flex justify-content-center">
 			<div class="row w-100 py-3">
 				<div class="col py-4">
-					<button class="btn" id="admin-facing-generate-payroll">
+					<button class="btn" id="admin-facing-generate-payroll" @click="$router.push( {name: 'Report'} )">
 						<div class="row d-flex justify-content-center">
 							<img src="../assets/img/payroll.png" style="width: 200px;" draggable="false" class="unselectable">
 						</div>
