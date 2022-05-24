@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import EmployeeFacing from '../views/EmployeeFacing.vue'
 import AdminFacing from '../views/AdminFacing.vue'
+import CreateEmployee from '../views/CreateEmployee.vue'
+import CreateRole from '../views/CreateRole.vue'
 import Report from '../views/Report.vue'
 
 Vue.use(VueRouter)
@@ -23,6 +25,16 @@ const routes = [
     path: '/admin',
     name: 'AdminFacing',
     component: AdminFacing
+  },
+  {
+    path: '/create-employee',
+    name: 'CreateEmployee',
+    component: CreateEmployee
+  },
+  {
+    path: '/create-role',
+    name: 'CreateRole',
+    component: CreateRole
   },
   {
     path: '/report',
