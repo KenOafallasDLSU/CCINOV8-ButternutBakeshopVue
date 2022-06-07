@@ -7,7 +7,6 @@
 <div class="section header d-flex justify-content-between">
   <img src="../assets/img/logo.png" alt="logo" class="logo">
   <h2 class="d-inline">
-    <button @click="showModal">modal</button>
     <router-link id="logout-button" class="logout-button" to="/">Logout</router-link>
   </h2>
 </div>
@@ -87,7 +86,7 @@
   </button>
 
   <!-- Submit Button -->
-  <button type="button" class="btn btn-primary submit-button">
+  <button type="button" class="btn btn-primary submit-button" @click="showModal">
     Submit
   </button>
 </div>
