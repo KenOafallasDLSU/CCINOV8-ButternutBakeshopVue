@@ -1,5 +1,8 @@
 <template>
 <div>
+  <!-- Modals -->
+  <PasswordModal ref="passwordModal"/>
+
   <!-- Header -->
 <div class="section header d-flex justify-content-between">
   <img src="../assets/img/logo.png" alt="logo" class="logo">
@@ -83,7 +86,7 @@
   </button>
 
   <!-- Submit Button -->
-  <button type="button" class="btn btn-primary submit-button">
+  <button type="button" class="btn btn-primary submit-button" @click="showModal">
     Submit
   </button>
 </div>
@@ -91,8 +94,23 @@
 </template>
 
 <script>
+import PasswordModal from '../components/PasswordModal.vue'
+
 export default {
   name: 'EmployeeFacing',
+  components: {
+    PasswordModal
+  },
+  methods: {
+    showModal() {
+      if(typeof this.$refs.passwordModal !== 'undefined')
+        this.$refs.passwordModal.showModal()
+    },
+    hideModal() {
+      if(typeof this.$refs.passwordModal !== 'undefined')
+        this.$refs.passwordModal.hideModal()
+    }
+  },
   data() {
     return{
         employees: [
