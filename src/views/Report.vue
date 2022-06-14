@@ -1,29 +1,32 @@
 <template>
   <div>
-      <!--Topbar-->
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-        </a>
-        <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-        <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-        <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-        <h1>This is an ultra snazzy topbar</h1>
-        <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-        
-        <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-        <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-        <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
+    <!--Header-->
+    <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
+        <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
+            <img src="../assets/img/logo.png" style="width:80px;height:50px;">
+          </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
+          <ul class="navbar-nav">
+            
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" @click="$router.push( {name: 'Login'} )" style="color: black;">Logout</a>
+            </li>
+            
+          </ul>
+        </div>
     </nav>
 
     <div class="main-content">
         <div class="container px-0 mx-0">
             <div class="row marginRow">
                 <div class="col-3 ">
-                    <p style="font-weight:500;margin-bottom: 2px;">Start Date</p>
+                    <p class="font-weight-bold" style="font-weight:500;margin-bottom: 2px;">Start Date</p>
                 </div>
                 <div class="col-3">
-                    <p style="font-weight:500;margin-bottom: 2px;">End Date</p>
+                    <p class="font-weight-bold" style="font-weight:500;margin-bottom: 2px;">End Date</p>
                 </div>
                 
             </div>
@@ -42,13 +45,13 @@
                     </select>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-warning">Generate</button>
+                    <button type="button" class="btn btn-warning font-weight-bold">Generate</button>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-warning">Export to PDF</button>
+                    <button type="button" class="btn btn-warning font-weight-bold">Export to PDF</button>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-warning">Send to Email</button>
+                    <button type="button" class="btn btn-warning font-weight-bold">Send to Email</button>
                 </div>
                 
             </div>
@@ -494,8 +497,13 @@
                     </div>
 
                 </div>
+
+
             </div>
+        
         </div>
+
+
     </div>
 
 
@@ -510,76 +518,83 @@
 
 <style scoped>
     body,
-    html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        background: #fcfcfc;
-    }
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Montserrat';
+    overflow-x: hidden;
+    background-color: #FCFCFC;
+}
 
-    .dd-upper {
-        font-family: 'montserrat';
-        font-style: normal;
-        font-weight: 500;
-        color:gray;
-        font-size:14px;
-        padding:5px ; /*top right bottom left*/
-        padding-right:15px;
-        border-radius: 5px;
-        width:260px;
-        height:35px;
-    }
-
-    button {
-        width:150px;
-        height:35px;
-        font-weight:500 !important;
-        padding-top:5px !important;
-    }
-    .main-content {
-        width:1100px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+nav {
+    background-color: #ffbc00;
+}
 
 
-    .main-table {
-        background-color: #BD200F;
-        width:100%;
-        border-radius:10px;
-        overflow: auto;
-        border-color: #BD200F !important;
-        border-style: solid !important;
-    }
+.dd-upper {
+    font-family: 'montserrat';
+    font-style: normal;
+    font-weight: 500;
+    color:gray;
+    font-size:14px;
+    padding:5px ; /*top right bottom left*/
+    padding-right:15px;
+    border-radius: 5px;
+    width:260px;
+    height:35px;
+}
 
-    .input-name {
-        width:100%;
-    }
+button {
+    width:150px;
+    height:35px;
+    font-weight:500 !important;
+    padding-top:5px !important;
+}
+.main-content {
+    width:1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    .input-short {
-        width:100%;
-    }
 
-    .input-total {
-        width: 100%;
-    }
-
-    * {
-    scrollbar-width: auto;
-    scrollbar-color: #BD200F;
-    }
-    *::-webkit-scrollbar {
-    width: 16px;
-    }
-
-    *::-webkit-scrollbar-track {
-    background: none;
-    }
-
-    *::-webkit-scrollbar-thumb {
+.main-table {
     background-color: #BD200F;
-    border-radius: 10px;
-    border: 3px none #ffffff;
-    }
+    width:100%;
+    border-radius:10px;
+    overflow: auto;
+    border-color: #BD200F !important;
+    border-style: solid !important;
+}
+
+.input-name {
+    width:100%;
+}
+
+.input-short {
+    width:100%;
+}
+
+.input-total {
+    width: 100%;
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #BD200F;
+}
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #BD200F;
+  border-radius: 10px;
+  border: 3px none #ffffff;
+}
 </style>
