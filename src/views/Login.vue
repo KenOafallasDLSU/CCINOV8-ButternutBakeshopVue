@@ -64,10 +64,7 @@ export default {
 </script>
 
 <style scoped>
-@font-face {
-    font-family: 'Montserrat';
-    src: url(../assets/fonts/Montserrat/static/Montserrat-Thin.ttf) format("truetype");
-}
+
 #app{
     height:100vh;
     width:100vw;

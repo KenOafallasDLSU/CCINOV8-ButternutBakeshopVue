@@ -146,13 +146,14 @@ export default {
 </script>
   
 <style scoped>
+
 body,
 html {
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100vw;
-    font-family: 'Montserrat';
+    font-family: Montserrat;
     overflow-x: hidden;
     background-color: #FCFCFC;
 }
