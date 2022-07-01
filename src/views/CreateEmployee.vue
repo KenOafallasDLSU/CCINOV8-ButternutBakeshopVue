@@ -22,28 +22,30 @@
     <div class="container p-1 h-100 d-flex justify-content-center align-items-center">
         <div class="card bg-white shadow">
             <div class="card-body p-md-5 mx-md-4">
-                <form>
+                <b-form @submit="onSubmit">
                     <p class="font-weight-bold">First Name</p>
                     <div class="input-group mb-3">
-                        <input type="text" id="firstname" class="form-control" placeholder="Juan">
+                        <!-- <input type="text" id="firstname" class="form-control" placeholder="Juan"> -->
+                        <b-form-input v-model="firstname" placeholder="Juan" trim required></b-form-input>
                     </div>
                     
                     <p class="font-weight-bold">Last Name</p>
                     <div class="input-group mb-3">
-                        <input type="text" id="lastname" class="form-control" placeholder="Dela Cruz">
+                        <!-- <input type="text" id="lastname" class="form-control" placeholder="Dela Cruz"> -->
+                        <b-form-input v-model="surname" placeholder="Dela Cruz" trim required></b-form-input>
                     </div>
                     
                     <p class="font-weight-bold">Contact Number</p>
                     <div class="input-group mb-3">
-                        <input type="text" id="contactnumber" class="form-control" placeholder="09XXXXXXXXX">
+                        <!-- <input type="text" id="contactnumber" class="form-control" placeholder="09XXXXXXXXX"> -->
+                        <b-form-input v-model="number" @keypress="isNumber($event)" :state="isNumberValid" placeholder="09xxxxxxxx" trim required></b-form-input>
+                        <b-form-invalid-feedback id="invalid-num-feedback">Please input a valid number.</b-form-invalid-feedback>
                     </div>
 
                     <div class="d-flex justify-content-center mt-5">
-                        <button class="btn btn-primary mx-4 font-weight-bold" type="button" id="create-employee-submit">Submit</button>
+                        <b-button class="btn btn-primary mx-4 font-weight-bold" type="submit" id="create-employee-submit">Submit</b-button>
                     </div>
-
-                </form>
-
+                </b-form>
             </div>
         </div>
     </div>
@@ -52,7 +54,34 @@
 
 <script>
 export default {
-  name: "CreateEmployee"
+  name: "CreateEmployee",
+  data() {
+    return{
+        firstname: "",
+        surname: "",
+        number: "",
+        isNumberValid: null
+    }
+  },
+  computed: {
+    isNumberValid() {
+        return this.number.length == 11 ? true : false
+    }
+  },
+  methods: {
+    isNumber: function(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+            evt.preventDefault();;
+        } else {
+            return true;
+        }
+    },
+    onSubmit: function(evt) {
+        this.isNumberValid = false
+    }
+  }
 }
 </script>
 
