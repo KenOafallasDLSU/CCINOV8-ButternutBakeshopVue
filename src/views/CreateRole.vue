@@ -3,7 +3,7 @@
     <!--Header-->
     <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
         <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
-            <img src="../assets/img/logo.png" style="width:80px;height:50px;">
+            <img id="logo" src="../assets/img/logo.png" style="width:80px;height:50px;">
           </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -63,6 +63,10 @@ html {
     background-color: #FCFCFC;
 }
 
+#logo:hover {
+    cursor:pointer;
+}
+
 nav {
     background-color: #ffbc00;
 }
@@ -70,21 +74,20 @@ nav {
 p {
     text-align: left;
 }
-.btn,
-.btn-primary,
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary:visited{
-    background-color: #BD200F !important;
-    border: 0 !important;
-}
-.btn-primary:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723);
+.btn-primary {
+    background-color: #BD200F;
+    border:0;
 }
 .btn-primary:hover {
     background-color: #a01101 !important;
-    border: 0 !important;
-    
+    border:0;
+}
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:visited {
+    color: #fff;
+    background-color: #a01101 !important;
+    border:0;
+    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
 }
 </style>

@@ -1,5 +1,8 @@
 <template>
 <div>
+<div class="scroll-bar-wrap">
+<div class="scroll-box">
+
   <div class="container-fluid p-0 h-100">
         <div class="row no-gutters h-100">
             <div class="col-5 text-center pl-5 pr-0 py-4" style="margin:auto;">
@@ -47,13 +50,14 @@
                     </div>
                 </div>
                 
-                
-                
             </div>
 
         </div>
 
     </div>
+</div>
+<div class="cover-bar"></div>
+</div>
 </div>
 </template>
 
@@ -91,25 +95,57 @@ html {
     flex:1;
 }
 
-/* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #ffbc00 #FCFCFC;
-  }
+.btn-primary {
+    background-color: #BD200F;
+    border:0;
+}
+.btn-primary:hover {
+    background-color: #a01101 !important;
+    border:0;
+}
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:visited {
+    color: #fff;
+    background-color: #a01101 !important;
+    border:0;
+    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
+.scroll-bar-wrap {
+  width: 100%;
+  position: relative;
+  margin: 0;
+}
+.scroll-box {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.scroll-box::-webkit-scrollbar {
+  width: .4em; 
+}
+.scroll-box::-webkit-scrollbar,
+.scroll-box::-webkit-scrollbar-thumb {
+  overflow:visible;
+  border-radius: 4px;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.2); 
+}
+.cover-bar {
+  position: absolute;
+  background: #ffbc00;;
+  height: 100%;  
+  top: 0;
+  right: 0;
+  width: .4em;
+  -webkit-transition: all .4s;
+  opacity: 1;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #FCFCFC;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #ffbc00;
-    border-radius: 10px;
-    border: none;
-  }
+.scroll-bar-wrap:hover .cover-bar {
+   opacity: 0;
+  -webkit-transition: all .4s;
+}
 </style>

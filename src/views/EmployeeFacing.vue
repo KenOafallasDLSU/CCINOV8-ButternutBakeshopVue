@@ -2,7 +2,7 @@
 <div>
   <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
     <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
-        <img src="../assets/img/logo.png" style="width:80px;height:50px;">
+        <img id="logo" src="../assets/img/logo.png" style="width:80px;height:50px;">
       </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -98,6 +98,26 @@
       Submit
     </button>
   </div>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <!-- content -->
+    <div class="modal-content text-white">
+      <div class="d-flex justify-content-end">
+        <span class="close ">&times;</span>
+      </div>
+      <div class="mb-4">
+        <p>Enter Employee Password</p>
+        <input class="modal-input" type="password"></input>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" class="confirm-button font-weight-bold">
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>
 </template>
 
@@ -156,6 +176,10 @@ html {
     font-family: Montserrat;
     overflow-x: hidden;
     background-color: #FCFCFC;
+}
+
+#logo:hover {
+    cursor:pointer;
 }
 
 nav {
@@ -234,15 +258,19 @@ h2{
 .submit-button{
   background: #BD200F;
   color: #FFF;
-  outline-color: #BD200F;
-  border-color: #BD200F;
+  border:0;
 }
 
-.submit-button:focus,
 .submit-button:hover{
-  background: #62150c;
-  color: #FFF;
-  outline-color: #BD200F;
-  border-color: #BD200F;
+  background: #a01101;
+  border: 0;
+}
+
+.submit-button:active,
+.submit-button:focus,
+.submit-button:visited {
+    background: #a01101 !important;
+    border:0;
+    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
 }
 </style>

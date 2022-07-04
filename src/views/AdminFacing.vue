@@ -3,7 +3,7 @@
 		<!--Header-->
     <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
         <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
-            <img src="../assets/img/logo.png" style="width:80px;height:50px;">
+            <img id="logo" src="../assets/img/logo.png" style="width:80px;height:50px;">
           </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -61,6 +61,10 @@ export default {
     width:100vw;
 }
 
+#logo:hover {
+    cursor:pointer;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -85,5 +89,7 @@ nav {
 .option-box:hover {
     background-color: #BD200F;
     color:#fcfcfc;
+    cursor:pointer;
+    transition: all .35s ease;
 }
 </style>
