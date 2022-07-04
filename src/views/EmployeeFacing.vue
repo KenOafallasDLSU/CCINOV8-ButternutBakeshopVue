@@ -1,95 +1,103 @@
 <template>
 <div>
-  <!-- Modals -->
-  <PasswordModal ref="passwordModal"/>
-
-  <!-- Header -->
-<div class="section header d-flex justify-content-between">
-  <img src="../assets/img/logo.png" alt="logo" class="logo">
-  <h2 class="d-inline">
-    <router-link id="logout-button" class="logout-button" to="/">Logout</router-link>
-  </h2>
-</div>
-
-<!-- Production Amount Input -->
-<div class="section">
-  <div class="form-group row text-left">
-    <label for="inputAmount" class="col-sm-4 col-form-label label">Dami ng Sacks</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control amount-textbox" id="inputAmount" placeholder="0">
+  <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
+    <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
+        <img src="../assets/img/logo.png" style="width:80px;height:50px;">
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" @click="$router.push( {name: 'Login'} )" style="color: black;">Logout</a>
+        </li>
+        
+      </ul>
+    </div>
+</nav>
+  
+  <!-- Production Amount Input -->
+  <div class="section">
+    <div class="form-group row no-gutters text-left d-flex flex-row-reverse p-0">
+      
+      <div class="col-sm-2">
+        <input type="text" class="form-control amount-textbox" id="inputAmount" placeholder="0">
+      </div>
+      <label for="inputAmount" class="col-sm-2 col-form-label label">Production Amount</label>
     </div>
   </div>
-</div>
-
-<!-- Team Leader Section -->
-<h2 class="section text-left">
-  Team Leader
-</h2>
-
-<div class="input-line section">
-  <div class="d-inline dropdown left">
-    <select v-model="testVal01" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
-      <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
-    </select>
+  
+  <!-- Team Leader Section -->
+  <h2 class="section text-left">
+    Team Leader
+  </h2>
+  
+  <div class="input-line section">
+    <div class="d-inline dropdown left">
+      <select v-model="testVal01" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
+  
+    <div class="d-inline dropdown right">
+      <select v-model="testVal02" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
   </div>
-
-  <div class="d-inline dropdown right">
-    <select v-model="testVal02" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
-      <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
-    </select>
+  
+  <!-- Horizontal Line Separator -->
+  <!-- <hr class="hr-divider section clearfix"/> -->
+  
+  <!-- Team Members Section -->
+  <h2 class="section text-left">
+    Team Members
+  </h2>
+  
+  <div class="input-line section">
+    <div class="d-inline dropdown left">
+      <select v-model="testVal11" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
+  
+    <div class="d-inline dropdown right">
+      <select v-model="testVal12" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
   </div>
-</div>
-
-<!-- Horizontal Line Separator -->
-<!-- <hr class="hr-divider section clearfix"/> -->
-
-<!-- Team Members Section -->
-<h2 class="section text-left">
-  Team Members
-</h2>
-
-<div class="input-line section">
-  <div class="d-inline dropdown left">
-    <select v-model="testVal11" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
-      <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
-    </select>
+  
+  <div class="input-line section">
+    <div class="d-inline dropdown left">
+      <select v-model="testVal21" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
+  
+    <div class="d-inline dropdown right">
+      <select v-model="testVal22" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
   </div>
-
-  <div class="d-inline dropdown right">
-    <select v-model="testVal12" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
-      <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
-    </select>
+  
+  <div class="section d-flex justify-content-between">
+    <!-- Plus Button -->
+    <button type="button" class="btn btn-primary add-button font-weight-bold">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
+      Add Employee
+    </button>
+  
+    <!-- Submit Button -->
+    <button type="button" class="btn btn-primary submit-button font-weight-bold">
+      Submit
+    </button>
   </div>
-</div>
-
-<div class="input-line section">
-  <div class="d-inline dropdown left">
-    <select v-model="testVal21" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
-      <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
-    </select>
-  </div>
-
-  <div class="d-inline dropdown right">
-    <select v-model="testVal22" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
-      <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
-    </select>
-  </div>
-</div>
-
-<div class="section d-flex justify-content-between">
-  <!-- Plus Button -->
-  <button type="button" class="btn btn-primary add-button">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-    </svg>
-    Magdagdag ng Empleyado
-  </button>
-
-  <!-- Submit Button -->
-  <button type="button" class="btn btn-primary submit-button" @click="showModal">
-    Submit
-  </button>
-</div>
 </div>
 </template>
 
@@ -138,11 +146,20 @@ export default {
 </script>
   
 <style scoped>
+
 body,
 html {
     margin: 0;
     padding: 0;
-    background: #EBEBEB;
+    height: 100vh;
+    width: 100vw;
+    font-family: Montserrat;
+    overflow-x: hidden;
+    background-color: #FCFCFC;
+}
+
+nav {
+    background-color: #ffbc00;
 }
 
 .header {
