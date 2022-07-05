@@ -1,7 +1,7 @@
 <template>
   <div>
       <!--Topbar-->
-    <nav class="navbar navbar-light bg-light">
+    <!-- <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
         </a>
@@ -14,7 +14,14 @@
         <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
         <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
         <img src="https://c.tenor.com/heQIzJAQvcIAAAAd/vibe-cat.gif" style="width: 80px; height: 80px;">
-    </nav>
+    </nav> -->
+
+    <div class="section header d-flex justify-content-between">
+  <img src="../assets/img/logo.png" alt="logo" class="logo">
+  <h2 class="d-inline">
+    <router-link id="logout-button" class="logout-button" to="/">Logout</router-link>
+  </h2>
+</div>
 
     <div class="main-content">
         <div class="container px-0 mx-0">
@@ -582,4 +589,30 @@
     border-radius: 10px;
     border: 3px none #ffffff;
     }
+
+    .logo{
+  width: 80px;
+}
+
+.logout-button{
+  font-size: 12px;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5px;
+}
+.logout-button:hover{
+  color: #BD200F;
+}
+
+.header {
+  margin-top: 20px;
+}
+
+.section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-bottom: 20px;
+}
 </style>

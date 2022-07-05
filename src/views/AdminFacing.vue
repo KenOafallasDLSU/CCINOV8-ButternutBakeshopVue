@@ -27,7 +27,7 @@
 				</div>
 				<div class="m-0 p-0 divider"></div>
 				<div class="col py-4">
-					<button class="btn" id="admin-facing-add-employee">
+					<button class="btn" id="admin-facing-add-employee" @click="$router.push( {name: 'CreateEmployee'} )">
 						<div class="row d-flex justify-content-center">
 							<img src="../assets/img/employee.png" style="width: 200px;" draggable="false" class="unselectable">
 						</div>
@@ -38,7 +38,7 @@
 				</div>
 				<div class="m-0 p-0 divider"></div>
 				<div class="col py-4">
-					<button class="btn" id="admin-facing-add-role">
+					<button class="btn" id="admin-facing-add-role" @click="$router.push( {name: 'CreateRole'} )">
 						<div class="row d-flex justify-content-center">
 							<img src="../assets/img/role.png" style="width: 200px;" draggable="false" class="unselectable">
 						</div>

@@ -1,5 +1,13 @@
 <template>
 <div>
+
+    <div class="section header d-flex justify-content-between">
+  <img src="../assets/img/logo.png" alt="logo" class="logo">
+  <h2 class="d-inline">
+    <router-link id="logout-button" class="logout-button" to="/">Logout</router-link>
+  </h2>
+</div>
+
     <div class="custom-shape-divider-bottom-1652890901">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
@@ -102,4 +110,30 @@ export default {
     .custom-shape-divider-bottom-1652890901 .shape-fill {
         fill: #BD200F;
     }
+
+    .logo{
+  width: 80px;
+    }
+
+    .logout-button{
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+    }
+    .logout-button:hover{
+    color: #BD200F;
+    }
+
+    .header {
+  margin-top: 20px;
+}
+
+.section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-bottom: 20px;
+}
 </style>

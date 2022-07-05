@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-modal class="confirm-modal" title="Sample Modal" ref="password-modal" v-b-modal.modal-center hide-header-close no-close-on-backdrop no-close-on-esc>
+    <b-modal class="confirm-modal" title="Sample Modal" ref="password-modal" v-b-modal.modal-center hide-header hide-header-close no-close-on-backdrop no-close-on-esc>
       <label class="modal-label">Enter your Password</label>
       <b-form-input v-model="password" type="password"></b-form-input>
       <b-alert v-model="showPasswordAlert" variant="danger">Mali ang Binigay Password</b-alert>
