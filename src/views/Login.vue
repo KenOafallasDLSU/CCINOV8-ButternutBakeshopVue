@@ -148,4 +148,9 @@ html {
    opacity: 0;
   -webkit-transition: all .4s;
 }
+
+::placeholder { 
+  color: black;
+  opacity: 0.3; 
+}
 </style>

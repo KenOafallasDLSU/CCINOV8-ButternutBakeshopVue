@@ -8,6 +8,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="nav-item">
+            <a class="nav-link font-weight-bold" style="color: black;" @click="$router.push( {name: 'Login'} )">Home</a>
+        </div>
+
         <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
           <ul class="navbar-nav">
             

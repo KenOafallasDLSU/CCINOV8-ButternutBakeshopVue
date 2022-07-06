@@ -8,6 +8,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="nav-item">
+            <a class="nav-link font-weight-bold" style="color: black;" @click="$router.push( {name: 'AdminFacing'} )">Home</a>
+        </div>
+
         <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
           <ul class="navbar-nav">
             
@@ -123,5 +128,10 @@ p {
     background-color: #a01101 !important;
     border:0;
     box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
+}
+
+.form-control::placeholder { 
+    color: black;
+    opacity: 0.3; 
 }
 </style>

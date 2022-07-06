@@ -273,4 +273,9 @@ h2{
     border:0;
     box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
 }
+
+::placeholder { 
+  color: black;
+  opacity: 0.3; 
+}
 </style>
