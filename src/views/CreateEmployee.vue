@@ -1,5 +1,8 @@
 <template>
 <div>
+    <!-- Modals -->
+    <CreateEmployeeModal ref="createEmployeeModal"/>
+
     <!--Header-->
     <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
         <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
@@ -24,10 +27,10 @@
         </div>
     </nav>
 
-    <div class="container p-1 h-100 d-flex justify-content-center align-items-center">
+    <div class="container p-1 h-100 d-flex justify-content-center align-items-center box">
         <div class="card bg-white shadow">
             <div class="card-body p-md-5 mx-md-4">
-                <b-form @submit="onSubmit">
+                <b-form @submit="checkValidation">
                     <p class="font-weight-bold">First Name</p>
                     <div class="input-group mb-3">
                         <!-- <input type="text" id="firstname" class="form-control" placeholder="Juan"> -->
@@ -47,6 +50,8 @@
                         <b-form-invalid-feedback id="invalid-num-feedback">Please input a valid number.</b-form-invalid-feedback>
                     </div>
 
+                    <CreateEmployeeModal :employeePassword="password"></CreateEmployeeModal>
+
                     <div class="d-flex justify-content-center mt-5">
                         <b-button class="btn btn-primary mx-4 font-weight-bold" type="submit" id="create-employee-submit">Submit</b-button>
                     </div>
@@ -58,19 +63,20 @@
 </template>
 
 <script>
+import CreateEmployeeModal from '../components/CreateEmployeeModal.vue'
+
 export default {
   name: "CreateEmployee",
+  components: {
+    CreateEmployeeModal
+  },
   data() {
     return{
         firstname: "",
         surname: "",
         number: "",
+        password: this.generatePassword(),
         isNumberValid: null
-    }
-  },
-  computed: {
-    isNumberValid() {
-        return this.number.length == 11 ? true : false
     }
   },
   methods: {
@@ -83,8 +89,63 @@ export default {
             return true;
         }
     },
-    onSubmit: function(evt) {
-        this.isNumberValid = false
+    generatePassword() {
+        var result = "";
+        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 6; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+
+        return result;
+    },
+    clearForm() {
+        this.todos.push({
+            firstname: "",
+            surname: "",
+            number: "",
+            password: this.generatePassword(),
+            isNumberValid: null
+        });
+        this.firstname = "";
+        this.surname = "";
+        this.number = "";
+    },
+    showPasswordModal() {
+        if(typeof this.$refs.createEmployeeModal !== 'undefined')
+            this.$refs.createEmployeeModal.showModal()
+    },
+    hidePasswordModal() {
+        if(typeof this.$refs.createEmployeeModal !== 'undefined')
+            this.$refs.createEmployeeModal.hideModal()
+    },
+    checkValidation(e) {
+        if (this.number.length == 11) {
+            this.isNumberValid = true;
+            this.showPasswordModal();
+            this.addData();
+            //this.clearForm();
+            return true;
+        } else {
+            this.isNumberValid = false;
+        }
+        
+        e.preventDefault();
+        return false;
+    },
+
+    // Data passing to server
+    async addData() {
+        try {
+            await axios.post("http://localhost:5000/employees", {
+                firstname: this.firstname,
+                surname: this.surname,
+                contact: this.number,
+                password: this.password
+            });
+        } catch (err) {
+            console.log(err)
+        }
     }
   }
 }
@@ -133,5 +194,9 @@ p {
 .form-control::placeholder { 
     color: black;
     opacity: 0.3; 
+}
+
+.box {
+    width: 390px;
 }
 </style>

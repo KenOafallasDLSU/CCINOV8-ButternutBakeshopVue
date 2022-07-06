@@ -12,7 +12,7 @@
         <div class="nav-item">
             <a class="nav-link font-weight-bold" style="color: black;" @click="$router.push( {name: 'AdminFacing'} )">Home</a>
         </div>
-        
+
         <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
           <ul class="navbar-nav">
             
