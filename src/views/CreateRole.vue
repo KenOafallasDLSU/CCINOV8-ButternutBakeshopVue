@@ -10,34 +10,39 @@
         </button>
         <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
           <ul class="navbar-nav">
-            
+
             <li class="nav-item">
               <a class="nav-link font-weight-bold" @click="$router.push( {name: 'Login'} )" style="color: black;">Logout</a>
             </li>
-            
+
           </ul>
         </div>
     </nav>
-    
+
     <div class="container p-1 h-100 d-flex justify-content-center align-items-center">
         <div class="card bg-white shadow">
             <div class="card-body p-md-5 mx-md-4">
-                <form>
+                <b-form @submit="onSubmit">
                     <p class="font-weight-bold">Role Name</p>
                     <div class="input-group mb-3">
-                        <input type="text" id="rolename" class="form-control" placeholder="Baker">
+                        <!--<input type="text" id="rolename" class="form-control" placeholder="Baker"> -->
+                        <b-form-input v-model="rolename" placeholder="Baker" trim required></b-form-input>
                     </div>
-                    
+
                     <p class="font-weight-bold">Rate</p>
                     <div class="input-group mb-3">
-                        <input type="text" id="rolerate" class="form-control" placeholder="0.00">
+                        <!--<input type="text" id="rolerate" class="form-control" placeholder="0.00"> -->
+                        <b-form-input v-model="rolerate" @keypress="isNumber($event)" :state="isRateValid" placeholder="0" trim required></b-form-input>
+                        <b-form-invalid-feedback id="invalid-num-feedback">Please input a valid rate.</b-form-invalid-feedback>
                     </div>
 
                     <div class="d-flex justify-content-center mt-5">
-                        <button class="btn btn-primary mx-4 font-weight-bold" type="button" id="create-role-submit">Submit</button>
+                        <b-button class="btn btn-primary mx-4 font-weight-bold" v-b-modal="'success-modal'" type="submit" id="create-role-submit">Submit</b-button>
                     </div>
 
-                </form>
+                    <b-modal id="success-modal">Role Successfully Added!</b-modal>
+
+                </b-form>
 
             </div>
         </div>
@@ -46,8 +51,51 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
-  name: "CreateEmployee"
+  name: "CreateRole",
+  data() {
+    return{
+          rolename: "",
+          rolerate: "",
+    }
+  },
+  computed: {
+    isRateValid() {
+        if (this.rolerate > 0) {
+          return true;
+        }
+        else {
+          return false;
+        }
+    }
+  },
+  methods: {
+    isNumber: function(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+            evt.preventDefault();;
+        } else {
+            return true;
+        }
+    },
+    async addRoleData() {
+        try {
+          await axios.post ("http://localhost:5000/roles", {
+            roleName: this.rolename,
+            rate: this.rolerate
+          });
+        } catch (err) {
+          console.log(err);
+        }
+    },
+    onSubmit: function(evt) {
+      this.addRoleData()
+
+    }
+  }
 }
 </script>
 
