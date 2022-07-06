@@ -34,18 +34,14 @@
             <div class="row">
                 <div class="col-3">
                     <!--Dropdown Element-->
-                    <select class="dd-upper" name="Select Date" size="">
-                        <option value="Option One"> Option One </option> 
-                    </select>
+                    <date-picker v-model="startDate"></date-picker>
                 </div>
                 <div class="col-3">
                     <!--Dropdown Element-->
-                    <select class="dd-upper" name="Select Date" size="">
-                        <option value="Option One"> Option One </option> 
-                    </select>
+                    <date-picker v-model="endDate"></date-picker>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-warning font-weight-bold">Generate</button>
+                    <button type="button" class="btn btn-warning font-weight-bold" @click="generated = true">Generate</button>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-warning font-weight-bold">Export to PDF</button>
@@ -78,7 +74,15 @@
                             
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody v-if="!generated">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <tbody v-if="generated">
                         <tr>
                             <td>Debbie</td>
                             <td>3</td>
@@ -135,8 +139,21 @@
 </template>
 
 <script>
+    import DatePicker from 'vue2-datepicker';
+    import 'vue2-datepicker/index.css';
+
     export default {
-        name: "Report"
+        name: "Report",
+        components: {
+            DatePicker
+        },
+        data() {
+            return {
+                generated: false,
+                startDate: null,
+                endDate: null
+            }
+        }
     }
 </script>
 

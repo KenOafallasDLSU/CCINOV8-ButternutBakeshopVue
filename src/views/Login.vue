@@ -37,8 +37,8 @@
                                     
                                     <div class="center-block text-center p-0">
                                         
-                                            <button class="btn btn-lg btn-block btn-primary font-weight-bold" style="background-color: #BD200F;font-size:18px;" type="submit" @click="$router.push('admin')"> Admin-facing</button>
-                                            <button class="btn btn-lg btn-block btn-primary font-weight-bold" style="background-color: #BD200F;font-size:18px;" type="submit" @click="$router.push('employee')"> Employee-facing</button>
+                                            <button class="btn btn-lg btn-block btn-primary font-weight-bold" style="background-color: #BD200F;font-size:18px;" type="submit" @click="$router.push('admin')"> Admin Portal</button>
+                                            <button class="btn btn-lg btn-block btn-primary font-weight-bold" style="background-color: #BD200F;font-size:18px;" type="submit" @click="$router.push('employee')"> Employee Portal</button>
 
                                     </div>
                                     
