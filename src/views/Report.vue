@@ -69,10 +69,16 @@
                         <tr>
                             <th >Name</th>
                             <th colspan="2" scope="colgroup">Baking</th>
+                            <th colspan="2" scope="colgroup">Shaping</th>
+                            <th colspan="2" scope="colgroup">Delivery</th>
                             <th>Total</th>                 
                         </tr>
                         <tr>
                             <th rowspan="2"></th>
+                            <th scope="col">Units</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Units</th>
+                            <th scope="col">Subtotal</th>
                             <th scope="col">Units</th>
                             <th scope="col">Subtotal</th>
                             <th rowspan="2"></th>
@@ -87,9 +93,13 @@
                             <td></td>
                         </tr>
                     </tbody>
-                    <tbody v-if="generated">
+                    <tbody class="pseudo-tbody" v-if="generated">
                         <tr>
                             <td>Debbie</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>180.00</td>
@@ -98,34 +108,58 @@
                             <td>Kenneth</td>
                             <td>3</td>
                             <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
                             <td>180.00</td>
                         </tr>
                         <tr>
                             <td>Lorraine</td>
                             <td>3</td>
                             <td>180.00</td>
+                            <td>3</td>
                             <td>180.00</td>
-                        </tr>
-                        <tr>
-                            <td>Abi</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>180.00</td>
                         </tr>
                         <tr>
-                            <td>Abi</td>
+                            <td>Adin</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>180.00</td>
                         </tr>
                         <tr>
-                            <td>Abi</td>
+                            <td>Lea</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>180.00</td>
                         </tr>
                         <tr>
-                            <td>Abi</td>
+                            <td>Juliet</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>180.00</td>
+                        </tr>
+                        <tr>
+                            <td>Daniel</td>
+                            <td>3</td>
+                            <td>180.00</td>
+                            <td>3</td>
+                            <td>180.00</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>180.00</td>
@@ -230,15 +264,15 @@ button {
     border: 1px solid #dddddd;
 }
 
-.styled-table tbody tr {
+.styled-table .pseudo-tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
+.styled-table .pseudo-tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-/*.styled-table tbody tr:last-of-type {
+/*.styled-table .pseudo-tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
 */

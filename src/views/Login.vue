@@ -111,7 +111,7 @@ html {
     border:0;
     box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
 }
-
+/*
 .scroll-bar-wrap {
   width: 100%;
   position: relative;
@@ -146,6 +146,46 @@ html {
 
 .scroll-bar-wrap:hover .cover-bar {
    opacity: 0;
+  -webkit-transition: all .4s;
+}
+
+::placeholder { 
+  color: black;
+  opacity: 0.3; 
+}*/
+
+.scroll-bar-wrap {
+  width: 100%;
+  position: relative;
+  margin: 0;
+}
+.scroll-box {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.scroll-box::-webkit-scrollbar {
+  width: .4em; 
+}
+.scroll-box::-webkit-scrollbar,
+.scroll-box::-webkit-scrollbar-thumb {
+  overflow:visible;
+  border-radius: 4px;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background: #ffbc00;
+}
+.cover-bar {
+  position: absolute;
+  background: #ffbc00;
+  height: 100%;  
+  top: 0;
+  right: 0;
+  width: .4em;
+  -webkit-transition: all .4s;
+}
+
+.scroll-bar-wrap:hover .cover-bar {
   -webkit-transition: all .4s;
 }
 

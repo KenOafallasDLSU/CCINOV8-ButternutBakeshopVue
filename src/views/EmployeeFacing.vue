@@ -105,11 +105,11 @@
   <div class="section d-flex justify-content-between">
     <!-- Plus Button -->
     <div>
-      <button type="button" class="btn btn-primary add-button font-weight-bold" style="margin-right:20px;" @click="visible3rd = true">
+      <button type="button" class="btn btn-primary add-button font-weight-bold magdagdag" style="margin-right:20px;" @click="visible3rd = true">
         + Magdagdag ng Empleyado
       </button>
 
-      <button type="button" class="btn btn-primary add-button font-weight-bold" @click="visible3rd = false">
+      <button type="button" class="btn btn-primary add-button font-weight-bold magbawas" @click="visible3rd = false">
         - Magbawas ng Empleyado
       </button>
     </div>
@@ -293,5 +293,19 @@ h2{
 ::placeholder { 
   color: black;
   opacity: 0.3; 
+}
+
+.magdagdag:active,
+.magdagdag:focus,
+.magdagdag:visited {
+  border:0;
+  box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.723) !important;
+}
+
+.magbawas:active,
+.magbawas:focus,
+.magbawas:visited {
+  border:0;
+  box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.723) !important;
 }
 </style>
