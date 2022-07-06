@@ -37,8 +37,10 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-5">
-                        <b-button class="btn btn-primary mx-4 font-weight-bold" type="submit" id="create-role-submit">Submit</b-button>
+                        <b-button class="btn btn-primary mx-4 font-weight-bold" v-b-modal="'success-modal'" type="submit" id="create-role-submit">Submit</b-button>
                     </div>
+
+                    <b-modal id="success-modal">Role Successfully Added!</b-modal>
 
                 </b-form>
 
