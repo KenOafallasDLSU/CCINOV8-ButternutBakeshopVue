@@ -55,10 +55,8 @@ export default {
   name: "CreateRole",
   data() {
     return{
-        form: {
           rolename: "",
-          rolerate: ""
-        }
+          rolerate: "",
     }
   },
   computed: {
@@ -81,15 +79,19 @@ export default {
             return true;
         }
     },
-    async addRoleData {
+    async addRoleData() {
         try {
-          await axios.post ("http://localhost:5000/roles", this.form);
+          await axios.post ("http://localhost:5000/roles", {
+            roleName: this.rolename,
+            rate: this.rolerate
+          });
         } catch (err) {
           console.log(err);
         }
     },
     onSubmit: function(evt) {
-      this.isRateValid = false
+      this.addRoleData()
+
     }
   }
 }
