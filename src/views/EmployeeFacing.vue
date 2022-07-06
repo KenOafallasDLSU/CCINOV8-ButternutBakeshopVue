@@ -87,15 +87,29 @@
       </select>
     </div>
   </div>
+
+  <div class="input-line section" v-if="visible3rd">
+    <div class="d-inline dropdown left">
+      <select v-model="testVal21" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
+  
+    <div class="d-inline dropdown right">
+      <select v-model="testVal22" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
+  </div>
   
   <div class="section d-flex justify-content-between">
     <!-- Plus Button -->
     <div>
-      <button type="button" class="btn btn-primary add-button font-weight-bold" style="margin-right:20px;">
+      <button type="button" class="btn btn-primary add-button font-weight-bold" style="margin-right:20px;" @click="visible3rd = true">
         + Magdagdag ng Empleyado
       </button>
 
-      <button type="button" class="btn btn-primary add-button font-weight-bold">
+      <button type="button" class="btn btn-primary add-button font-weight-bold" @click="visible3rd = false">
         - Magbawas ng Empleyado
       </button>
     </div>
@@ -158,7 +172,10 @@ export default {
         testVal11: null,
         testVal12: null,
         testVal21: null,
-        testVal22: null
+        testVal22: null,
+        testVal31: null,
+        testVal32: null,
+        visible3rd: false
     }
   }
 }
