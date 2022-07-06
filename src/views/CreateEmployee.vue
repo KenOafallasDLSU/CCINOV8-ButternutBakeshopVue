@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
   name: "CreateEmployee",
   data() {
@@ -80,6 +82,20 @@ export default {
     },
     onSubmit: function(evt) {
         this.isNumberValid = false
+    },
+
+    // Data passing to server
+    async addData() {
+        try {
+            await axios.post("http://localhost:5000/employees", {
+                firstname: this.firstname,
+                surname: this.surname,
+                contact: this.number,
+                password: ""
+            });
+        } catch (err) {
+            console.log(err)
+        }
     }
   }
 }
