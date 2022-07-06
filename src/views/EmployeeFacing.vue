@@ -1,7 +1,11 @@
 <template>
 <div>
+  <!-- Modals -->
+  <EmployeePasswordModal ref="employeePasswordModal"/>
+  <AdminPasswordModal ref="adminPasswordModal"/>
+
   <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
-    <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
+    <a class="navbar-brand">
         <img id="logo" src="../assets/img/logo.png" style="width:80px;height:50px;">
       </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +15,7 @@
       <ul class="navbar-nav">
         
         <li class="nav-item">
-          <a class="nav-link font-weight-bold" @click="$router.push( {name: 'Login'} )" style="color: black;">Logout</a>
+          <a class="nav-link font-weight-bold" @click="showAdminModal" style="color: black;">Logout</a>
         </li>
         
       </ul>
@@ -25,7 +29,7 @@
       <div class="col-sm-2">
         <input type="text" class="form-control amount-textbox" id="inputAmount" placeholder="0">
       </div>
-      <label for="inputAmount" class="col-sm-2 col-form-label label">Production Amount</label>
+      <label for="inputAmount" class="col-sm-2 col-form-label label">Bilang ng Sacks</label>
     </div>
   </div>
   
@@ -83,60 +87,69 @@
       </select>
     </div>
   </div>
+
+  <div class="input-line section" v-if="visible3rd">
+    <div class="d-inline dropdown left">
+      <select v-model="testVal21" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
+  
+    <div class="d-inline dropdown right">
+      <select v-model="testVal22" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+        <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
+      </select>
+    </div>
+  </div>
   
   <div class="section d-flex justify-content-between">
     <!-- Plus Button -->
-    <button type="button" class="btn btn-primary add-button font-weight-bold">
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-      </svg>
-      Add Employee
-    </button>
+    <div>
+      <button type="button" class="btn btn-primary add-button font-weight-bold" style="margin-right:20px;" @click="visible3rd = true">
+        + Magdagdag ng Empleyado
+      </button>
+
+      <button type="button" class="btn btn-primary add-button font-weight-bold" @click="visible3rd = false">
+        - Magbawas ng Empleyado
+      </button>
+    </div>
+    
   
     <!-- Submit Button -->
-    <button type="button" class="btn btn-primary submit-button font-weight-bold">
-      Submit
+    <button type="button" class="btn btn-primary submit-button font-weight-bold" @click="showEmployeeModal">
+      Ipasa
     </button>
-  </div>
-
-  <!-- Modal -->
-  <div id="myModal" class="modal">
-    <!-- content -->
-    <div class="modal-content text-white">
-      <div class="d-flex justify-content-end">
-        <span class="close ">&times;</span>
-      </div>
-      <div class="mb-4">
-        <p>Enter Employee Password</p>
-        <input class="modal-input" type="password"></input>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button type="button" class="confirm-button font-weight-bold">
-          Confirm
-        </button>
-      </div>
-    </div>
   </div>
 
 </div>
 </template>
 
 <script>
-import PasswordModal from '../components/PasswordModal.vue'
+import EmployeePasswordModal from '../components/EmployeePasswordModal.vue'
+import AdminPasswordModal from '../components/AdminPasswordModal.vue'
 
 export default {
   name: 'EmployeeFacing',
   components: {
-    PasswordModal
+    EmployeePasswordModal,
+    AdminPasswordModal
   },
   methods: {
-    showModal() {
-      if(typeof this.$refs.passwordModal !== 'undefined')
-        this.$refs.passwordModal.showModal()
+    showEmployeeModal() {
+      if(typeof this.$refs.employeePasswordModal !== 'undefined')
+        this.$refs.employeePasswordModal.showModal()
     },
-    hideModal() {
-      if(typeof this.$refs.passwordModal !== 'undefined')
-        this.$refs.passwordModal.hideModal()
+    hideEmployeeModal() {
+      if(typeof this.$refs.employeePasswordModal !== 'undefined')
+        this.$refs.employeePasswordModal.hideModal()
+    },
+    showAdminModal() {
+      if(typeof this.$refs.adminPasswordModal !== 'undefined')
+        this.$refs.adminPasswordModal.showModal()
+    },
+    hideAdminModal() {
+      if(typeof this.$refs.adminPasswordModal !== 'undefined')
+        this.$refs.adminPasswordModal.hideModal()
     }
   },
   data() {
@@ -159,7 +172,10 @@ export default {
         testVal11: null,
         testVal12: null,
         testVal21: null,
-        testVal22: null
+        testVal22: null,
+        testVal31: null,
+        testVal32: null,
+        visible3rd: false
     }
   }
 }

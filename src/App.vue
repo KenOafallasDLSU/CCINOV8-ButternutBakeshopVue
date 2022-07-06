@@ -25,4 +25,8 @@
   text-align: center;
   color: #2c3e50;
 }
+
+.nav-item:hover {
+  cursor: pointer;
+}
 </style>
