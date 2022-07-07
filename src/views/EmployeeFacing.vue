@@ -90,13 +90,13 @@
 
   <div class="input-line section" v-if="visible3rd">
     <div class="d-inline dropdown left">
-      <select v-model="testVal21" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <select v-model="testVal31" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
         <option v-for="item in employees" :value="item.value" :key="item.value">{{item.text}}</option>
       </select>
     </div>
   
     <div class="d-inline dropdown right">
-      <select v-model="testVal22" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
+      <select v-model="testVal32" class="btn btn-secondary dropdown-toggle dropdown-styler" type="button">
         <option v-for="item in roles" :value="item.value" :key="item.value">{{item.text}}</option>
       </select>
     </div>

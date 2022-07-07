@@ -39,7 +39,7 @@
                                         
                                             <button class="btn btn-lg btn-block btn-primary font-weight-bold" style="background-color: #BD200F;font-size:18px;" type="submit" @click="$router.push('admin')"> Admin Portal</button>
                                             <button class="btn btn-lg btn-block btn-primary font-weight-bold" style="background-color: #BD200F;font-size:18px;" type="submit" @click="$router.push('employee')"> Employee Portal</button>
-
+                                            <p class="form-label font-weight-bold exit-button" for="typeUserX-2">Exit</p>
                                     </div>
                                     
                                     
@@ -110,6 +110,11 @@ html {
     background-color: #a01101 !important;
     border:0;
     box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
+}
+
+.exit-button{
+  margin-top: 10px;
+  cursor: pointer;
 }
 /*
 .scroll-bar-wrap {
