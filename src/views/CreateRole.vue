@@ -1,5 +1,11 @@
 <template>
 <div>
+
+    <!-- Modals -->
+    <b-modal class="success-modal" ref="password-modal" id="password-modal" v-model="showConfirmModal" v-b-modal.modal-center ok-only hide-header no-close-on-backdrop no-close-on-esc>
+      <bold>Role successfully created!</bold>
+    </b-modal>
+
     <!--Header-->
     <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
         <a class="navbar-brand" @click="$router.push( {name: 'AdminFacing'} )">
@@ -8,41 +14,41 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="nav-item">
-            <a class="nav-link font-weight-bold" style="color: black;" @click="$router.push( {name: 'AdminFacing'} )">Home</a>
-        </div>
-        
         <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
           <ul class="navbar-nav">
-            
+
             <li class="nav-item">
               <a class="nav-link font-weight-bold" @click="$router.push( {name: 'Login'} )" style="color: black;">Logout</a>
             </li>
-            
+
           </ul>
         </div>
     </nav>
-    
+
     <div class="container p-1 h-100 d-flex justify-content-center align-items-center">
         <div class="card bg-white shadow">
             <div class="card-body p-md-5 mx-md-4">
-                <form>
+                <b-form @submit="onSubmit">
                     <p class="font-weight-bold">Role Name</p>
                     <div class="input-group mb-3">
-                        <input type="text" id="rolename" class="form-control" placeholder="Baker">
+                        <!--<input type="text" id="rolename" class="form-control" placeholder="Baker"> -->
+                        <b-form-input v-model="rolename" placeholder="Baker" trim required></b-form-input>
                     </div>
-                    
+
                     <p class="font-weight-bold">Rate</p>
                     <div class="input-group mb-3">
-                        <input type="text" id="rolerate" class="form-control" placeholder="0.00">
+                        <!--<input type="text" id="rolerate" class="form-control" placeholder="0.00"> -->
+                        <b-form-input v-model="rolerate" @keypress="isNumber($event)" :state="isRateValid" placeholder="0" trim required></b-form-input>
+                        <b-form-invalid-feedback id="invalid-num-feedback">Please input a valid rate.</b-form-invalid-feedback>
                     </div>
 
                     <div class="d-flex justify-content-center mt-5">
-                        <button class="btn btn-primary mx-4 font-weight-bold" type="button" id="create-role-submit">Submit</button>
+                        <b-button class="btn btn-primary mx-4 font-weight-bold" v-b-modal="'password-modal'" type="submit" id="create-role-submit">Submit</b-button>
                     </div>
 
-                </form>
+                    <b-modal id="success-modal">Role Successfully Added!</b-modal>
+
+                </b-form>
 
             </div>
         </div>
@@ -51,8 +57,64 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
-  name: "CreateEmployee"
+  name: "CreateRole",
+  data() {
+    return{
+          rolename: "",
+          rolerate: ""
+    }
+  },
+  computed: {
+    isRateValid() {
+        if (this.rolerate == 0) {
+          return null;
+        }
+        else if (this.rolerate > 0) {
+          return true;
+        }
+        else {
+          return false;
+        }
+    }
+  },
+  methods: {
+    isNumber: function(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+            evt.preventDefault();;
+        } else {
+            return true;
+        }
+    },
+    clearForm() {
+        this.rolename = "";
+        this.rolerate = "";
+    },
+    showModal() {
+        if(typeof this.$refs['password-modal'] !== 'undefined')
+            this.$refs['password-modal'].show()
+    },
+    hideModal() {
+        if(typeof this.$refs['password-modal'] !== 'undefined')
+            this.$refs['password-modal'].hide()
+    },
+    async addRoleData() {
+        try {
+          await axios.post ("http://localhost:5000/roles", {
+            roleName: this.rolename,
+            rate: this.rolerate
+          });
+        } catch (err) {
+          console.log(err);
+        }
+    },
+    onSubmit: function(evt) {
+      this.clearForm()
+    }
+  }
 }
 </script>
 
@@ -67,15 +129,12 @@ html {
     overflow-x: hidden;
     background-color: #FCFCFC;
 }
-
 #logo:hover {
     cursor:pointer;
 }
-
 nav {
     background-color: #ffbc00;
 }
-
 p {
     text-align: left;
 }
@@ -94,10 +153,5 @@ p {
     background-color: #a01101 !important;
     border:0;
     box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.723) !important;
-}
-
-::placeholder { 
-  color: black;
-  opacity: 0.3; 
 }
 </style>
