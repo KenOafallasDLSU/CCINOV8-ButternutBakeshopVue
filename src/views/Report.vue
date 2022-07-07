@@ -2,7 +2,7 @@
   <div>
     <!--Header-->
     <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
-        <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
+        <a class="navbar-brand" @click="$router.push( {name: 'AdminFacing'} )">
             <img id="logo" src="../assets/img/logo.png" style="width:80px;height:50px;">
           </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,16 +70,16 @@
                             <th >Name</th>
                             <th colspan="2" scope="colgroup">Baking</th>
                             <th colspan="2" scope="colgroup">Shaping</th>
-                            <th colspan="2" scope="colgroup">Delivery</th>
+                            <th colspan="2" scope="colgroup">Packing</th>
                             <th>Total</th>                 
                         </tr>
                         <tr>
                             <th rowspan="2"></th>
-                            <th scope="col">Units</th>
+                            <th scope="col">Sacks</th>
                             <th scope="col">Subtotal</th>
-                            <th scope="col">Units</th>
+                            <th scope="col">Sacks</th>
                             <th scope="col">Subtotal</th>
-                            <th scope="col">Units</th>
+                            <th scope="col">Sacks</th>
                             <th scope="col">Subtotal</th>
                             <th rowspan="2"></th>
                             
@@ -91,78 +91,52 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                     <tbody class="pseudo-tbody" v-if="generated">
                         <tr>
-                            <td>Debbie</td>
+                            <td>Buhion</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>3</td>
-                            <td>180.00</td>
+                            <td>150.00</td>
                             <td>3</td>
-                            <td>180.00</td>
-                            <td>180.00</td>
+                            <td>120.00</td>
+                            <td>450.00</td>
                         </tr>
                         <tr>
-                            <td>Kenneth</td>
+                            <td>Cortel</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>3</td>
-                            <td>180.00</td>
+                            <td>150.00</td>
                             <td>3</td>
-                            <td>180.00</td>
-                            <td>180.00</td>
+                            <td>120.00</td>
+                            <td>450.00</td>
                         </tr>
                         <tr>
-                            <td>Lorraine</td>
+                            <td>Oafallas</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>3</td>
-                            <td>180.00</td>
+                            <td>150.00</td>
                             <td>3</td>
-                            <td>180.00</td>
-                            <td>180.00</td>
+                            <td>120.00</td>
+                            <td>450.00</td>
                         </tr>
                         <tr>
-                            <td>Adin</td>
+                            <td>Wan</td>
                             <td>3</td>
                             <td>180.00</td>
                             <td>3</td>
-                            <td>180.00</td>
+                            <td>150.00</td>
                             <td>3</td>
-                            <td>180.00</td>
-                            <td>180.00</td>
-                        </tr>
-                        <tr>
-                            <td>Lea</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>180.00</td>
-                        </tr>
-                        <tr>
-                            <td>Juliet</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>180.00</td>
-                        </tr>
-                        <tr>
-                            <td>Daniel</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>3</td>
-                            <td>180.00</td>
-                            <td>180.00</td>
+                            <td>120.00</td>
+                            <td>450.00</td>
                         </tr>
                     </tbody>
                 </table>

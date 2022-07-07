@@ -10,7 +10,7 @@
 
     <!--Header-->
     <nav class="navbar navbar-expand-lg px-5" style="margin-bottom:100px;">
-        <a class="navbar-brand" @click="$router.push( {name: 'Login'} )">
+        <a class="navbar-brand" @click="$router.push( {name: 'AdminFacing'} )">
             <img id="logo" src="../assets/img/logo.png" style="width:80px;height:50px;">
           </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

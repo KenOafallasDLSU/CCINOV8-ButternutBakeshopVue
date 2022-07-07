@@ -157,15 +157,15 @@ export default {
         employees: [
           {text:'Pumili ng Empleyado', value:null},
           {text:'Deborah Buhion', value:1},
-          {text:'Michaela Dizon', value:2},
-          {text:'Thea Go', value:3},
-          {text:'Kenneth Oafallas', value:4}
+          {text:'Lorraine Cortel', value:2},
+          {text:'Kenneth Oafallas', value:3},
+          {text:'Abigail Wan', value:4}
         ],
         roles: [
           {text:'Pumili ng Trabaho', value:null},
           {text:'Shaping', value:1},
           {text:'Baking', value:2},
-          {text:'Delivery', value:3}
+          {text:'Packing', value:3}
         ],
         testVal01: null,
         testVal02: null,
